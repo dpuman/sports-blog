@@ -3,7 +3,7 @@
     require_once "vendor/autoload.php";
     use App\classes\Blog;
     use App\classes\Auth;
-
+    use App\classes\Comment;
     $result ="";
     $someCricketBlogs=[];
 $someFootBallBlogs=[];
@@ -35,6 +35,8 @@ $someFootBallBlogs=[];
         elseif($_GET["page"]=="blog-details"){
             $blog = new Blog();
             $singleBlog = $blog->getBlogById($_GET["id"]);
+            $comments= $blog->getComments($_GET["id"]);
+
             include "pages/blog-details.php";
         }
         elseif($_GET["page"]=="about-us"){
@@ -82,6 +84,17 @@ $someFootBallBlogs=[];
         $auth= new Auth($_POST);
         $result = $auth->login();
         include "pages/login.php";
+
+    }
+
+    elseif (isset($_POST["comment_btn"])){
+
+        echo "<pre>";
+        print_r($_POST);
+
+        $comment = new Comment($_POST);
+        $comment->makeComment();
+
 
     }
 

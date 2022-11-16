@@ -8,6 +8,7 @@ class Blog
     private $title,$author,$category,$description,$image,$sql,$database,$queryResult,$row,$data=[],$blogId,$blog=[];
     private $imageName,$imageDirectory,$tempLocation;
     private $cricketBlogs=[],$footballBlogs=[];
+    private $comments = [];
 
     public function __construct($post=null,$files=null)
     {
@@ -114,6 +115,25 @@ class Blog
         mysqli_query($this->database->dbConnect(),$this->sql);
 
         header('location:action.php?page=manage-blog');
+    }
+
+    public function getComments($id){
+        $this->sql = "SELECT * FROM comments WHERE blog_id = '$id'";
+
+        $this->queryResult = mysqli_query($this->database->dbConnect(),$this->sql);
+
+//        echo '<pre>';
+//        print_r( $this->queryResult);
+
+        while($this->row = mysqli_fetch_assoc($this->queryResult)){
+            array_push($this->comments, $this->row);
+        }
+
+
+
+        return $this->comments;
+
+
     }
 
 

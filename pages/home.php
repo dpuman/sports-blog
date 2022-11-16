@@ -53,7 +53,7 @@
                             <div class="card pb-0 m-0">
                                 <img src="<?php echo $cb['image']?>" class="rounded-top" alt="">
                                 <div class="card-body pb-0">
-                                    <a href="cricket-news-details.html" class="text-decoration-none pb-5"><?php echo $cb['title']?></a>
+                                    <a href="action.php?page=blog-details&&id=<?php echo $cb["id"] ?>" class="text-decoration-none pb-5"><?php echo $cb['title']?></a>
                                     <p class="text-muted small pt-2"> <?php echo $cb['author']?> </p>
                                 </div>
                             </div>
@@ -74,10 +74,10 @@
 
                         <div class="col-md-6 pb-4">
                             <div class="card pb-0 m-0">
-                                <img src="<?php echo $cb['image']?>" class="rounded-top" alt="">
+                                <img src="<?php echo $fb['image']?>" class="rounded-top" alt="">
                                 <div class="card-body pb-0">
-                                    <a href="" class="text-decoration-none pb-5"><?php echo $cb['title']?></a>
-                                    <p class="text-muted small pt-2"> <?php echo $cb['author']?> </p>
+                                    <a href="action.php?page=blog-details&&id=<?php echo $fb["id"] ?>" class="text-decoration-none pb-5"><?php echo $cb['title']?></a>
+                                    <p class="text-muted small pt-2"> <?php echo $fb['author']?> </p>
                                 </div>
                             </div>
                         </div>
